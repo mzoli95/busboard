@@ -60,6 +60,15 @@ export const busCrudStyles = {
     border: "1px solid rgba(27,226,154,0.3)",
     borderRadius: 3,
   },
+  pageCard: {
+    maxWidth: 720,
+    mx: "auto",
+    p: { xs: 2.5, sm: 4 },
+    bgcolor: "#123b4d",
+    color: "#fff",
+    border: "1px solid rgba(27,226,154,0.3)",
+    borderRadius: 3,
+  },
   detailRow: {
     pb: 1.5,
     borderBottom: "1px solid rgba(255,255,255,0.12)",

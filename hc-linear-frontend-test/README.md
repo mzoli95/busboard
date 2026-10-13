@@ -7,7 +7,7 @@ A feladat leírása megtalálható a kezdő oldalon, a projekt elindítása utá
 
 ## Minimum követelmények
 
-- **Node.js 18+**
+- **Node.js 20.19+ vagy 22.12+** (a Vite 7 követelménye)
 - **npm 9+** vagy **pnpm / yarn**
 - **Docker + Docker Compose**
 
@@ -15,9 +15,10 @@ A feladat leírása megtalálható a kezdő oldalon, a projekt elindítása utá
 
 ## Projekt indítása (frontend)
 
-A projekt gyökérmappájában futtasd:
+A repository klónozása után lépj be a frontend projekt mappájába, majd futtasd:
 
 ```bash
+cd hc-linear-frontend-test
 npm install
 npm run dev
 ```

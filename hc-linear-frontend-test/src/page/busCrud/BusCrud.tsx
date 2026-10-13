@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Alert,
@@ -11,8 +12,6 @@ import AddIcon from "@mui/icons-material/Add";
 import BusFormDialog from "./components/BusFormDialog";
 import BusTable from "./components/BusTable";
 import DeleteBusDialog from "./components/DeleteBusDialog";
-import BusDetailsDialog from "./components/BusDetailsDialog";
-import BusEditDialog from "./components/BusEditDialog";
 import type { Bus } from "./data/busCrud.types";
 import { deleteBus, getBuses } from "./services/busCrud.service";
 import { BUS_QUERY_KEY } from "./busCrud.queries";
@@ -20,9 +19,8 @@ import { busCrudStyles } from "./style/busCrud.style";
 
 export default function BusCrud() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const [formOpen, setFormOpen] = useState(false);
-  const [busToView, setBusToView] = useState<Bus | null>(null);
-  const [busToEdit, setBusToEdit] = useState<Bus | null>(null);
   const [busToDelete, setBusToDelete] = useState<Bus | null>(null);
 
   const {
@@ -74,22 +72,13 @@ export default function BusCrud() {
       {!isPending && !isError && (
         <BusTable
           buses={buses}
-          onView={setBusToView}
-          onEdit={setBusToEdit}
+          onView={(bus) => navigate(`/buses/${bus.id}`)}
+          onEdit={(bus) => navigate(`/buses/${bus.id}/edit`)}
           onDelete={setBusToDelete}
         />
       )}
 
       <BusFormDialog open={formOpen} onClose={() => setFormOpen(false)} />
-      <BusDetailsDialog
-        bus={busToView}
-        onClose={() => setBusToView(null)}
-        onEdit={(bus) => {
-          setBusToView(null);
-          setBusToEdit(bus);
-        }}
-      />
-      <BusEditDialog bus={busToEdit} onClose={() => setBusToEdit(null)} />
       <DeleteBusDialog
         bus={busToDelete}
         isPending={deleteMutation.isPending}

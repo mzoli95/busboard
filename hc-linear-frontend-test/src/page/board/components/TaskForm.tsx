@@ -20,7 +20,7 @@ export default function TaskForm({ id, initialValue, onSubmit }: Props) {
       description: form.description.trim(),
     };
 
-    if (input.title && input.shortDescription) onSubmit(input);
+    if (input.title) onSubmit(input);
   }
 
   return (
@@ -42,9 +42,8 @@ export default function TaskForm({ id, initialValue, onSubmit }: Props) {
           onChange={(event) =>
             setForm({ ...form, shortDescription: event.target.value })
           }
-          required
           fullWidth
-          helperText="Ez jelenik meg a kártyán."
+          helperText="Opcionális; ez jelenik meg a kártyán."
           slotProps={{ htmlInput: { maxLength: 160 } }}
           sx={boardStyles.titleField}
         />

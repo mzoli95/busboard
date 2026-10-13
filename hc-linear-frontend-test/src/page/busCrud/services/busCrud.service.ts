@@ -6,6 +6,11 @@ export async function getBuses(): Promise<Bus[]> {
   return response.data;
 }
 
+export async function getBus(id: string): Promise<Bus> {
+  const response = await busesAxiosClient.get<Bus>(`/buses/${id}`);
+  return response.data;
+}
+
 export async function createBus(input: BusInput): Promise<Bus> {
   const response = await busesAxiosClient.post<Bus>("/buses", input);
   return response.data;

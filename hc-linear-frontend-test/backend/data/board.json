@@ -1,0 +1,25 @@
+{
+  "board": [
+    {
+      "id": 1,
+      "title": "Board Task A",
+      "shortDescription": "Teszt A rövid leírása",
+      "description": "Teszt A részletes leírása: az előkészítendő lépések és az elvárt eredmény ellenőrzése.",
+      "status": "todo"
+    },
+    {
+      "id": 2,
+      "title": "Board Task B",
+      "shortDescription": "Teszt B rövid leírása",
+      "description": "Teszt B részletes leírása: a folyamatban lévő feladat állapotának és eredményének ellenőrzése.",
+      "status": "in_progress"
+    },
+    {
+      "id": 3,
+      "title": "Board Task C",
+      "shortDescription": "Teszt C rövid leírása",
+      "description": "Teszt C részletes leírása: a kész feladat eredményének végső áttekintése.",
+      "status": "done"
+    }
+  ]
+}
